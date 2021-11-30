@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 
 import TodoList from './components/TodoList'
+import Header from './components/Header'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             </div>
           </section>
         </nav>
+        <Header />
         <TodoList />
       </div>
     </Provider>

@@ -8,22 +8,22 @@ const initialState = [
 
 const nextTodoId = (todos) => {
   const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
-  return maxId
+  return maxId + 1
 }
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case TODO_ADD:
       return [
-        ...state.todos,
+        ...state,
         {
-          id: nextTodoId(state.todos),
+          id: nextTodoId(state),
           text: action.payload,
           completed: false,
         },
       ]
     case TODO_TOGGLE:
-      return state.todos.map((todo) => {
+      return state.map((todo) => {
         if (todo.id !== action.payload) {
           return todo
         }
